@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken'); // Added this line
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:7000/userauth'; // Use MONGO_URI if set, otherwise default to localhost
+const MONGO_URI = process.env.MONGO_URI; // Use MONGO_URI if set, otherwise default to localhost
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
