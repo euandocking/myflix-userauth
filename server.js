@@ -61,7 +61,7 @@ app.post('/api/login', async (req, res) => {
             expiresIn: '1h', // Set an expiration time for the token
         });
 
-        res.status(200).json({ token });
+        res.status(200).json({ userId: user._id, token }); // Include userId in the response
     } catch (error) {
         res.status(500).json({ error: 'Error during login.' });
     }
