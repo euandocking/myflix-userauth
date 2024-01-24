@@ -56,8 +56,12 @@ app.post('/api/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid password.' });
         }
 
-        // Password is valid, issue a token
-        const token = jwt.sign({ userId: user._id, username: user.username }, 'your_secret_key', {
+        // Password is valid, issue a token with additional information (e.g., roles)
+        const token = jwt.sign({
+            userId: user._id,
+            username: user.username,
+            roles: ['video_access'], // Example: Include roles in the JWT payload
+        }, 'your_secret_key', {
             expiresIn: '1h', // Set an expiration time for the token
         });
 
